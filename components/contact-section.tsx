@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@cidazimbabwe.org",
+    value: "info@cida.co.zw",
   },
 ]
 
