@@ -29,7 +29,7 @@ const projects = [
 
 const stats = [
   { icon: Users, label: "Farmers Supported", value: "500+" },
-  { icon: GraduationCap, label: "Schools Assisted", value: "12" },
+  { icon: GraduationCap, label: "Schools Assisted", value: "6" },
   { icon: Heart, label: "Women Empowered", value: "300+" },
   { icon: Award, label: "Youth Trained", value: "200+" },
 ]

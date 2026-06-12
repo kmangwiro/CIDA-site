@@ -48,29 +48,40 @@ export function GetInvolvedSection() {
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {ways.map((way) => {
-            const Wrapper = way.title === "Donate" ? Link : "div"
-            const wrapperProps =
-              way.title === "Donate" ? { href: "#contact" } : {}
-            return (
-              <Wrapper
-                key={way.title}
-                {...(wrapperProps as Record<string, string>)}
-                className="group flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-primary/30 hover:shadow-lg cursor-pointer"
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10 transition-colors group-hover:bg-secondary/20">
-                  <way.icon className="h-7 w-7 text-secondary" />
+            const cardContent = (
+                <>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary/10 transition-colors group-hover:bg-secondary/20">
+                    <way.icon className="h-7 w-7 text-secondary" />
+                  </div>
+
+                  <h3 className="mt-5 text-lg font-bold text-foreground">
+                    {way.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {way.description}
+                  </p>
+                </>
+            )
+
+            return way.title === "Donate" ? (
+                <Link
+                    key={way.title}
+                    href="#contact"
+                    className="group flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-primary/30 hover:shadow-lg cursor-pointer"
+                >
+                  {cardContent}
+                </Link>
+            ) : (
+                <div
+                    key={way.title}
+                    className="group flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center transition-all hover:border-primary/30 hover:shadow-lg cursor-pointer"
+                >
+                  {cardContent}
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">
-                  {way.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {way.description}
-                </p>
-              </Wrapper>
             )
           })}
         </div>
-
         <div className="mt-16 flex justify-center">
           <Button size="lg" asChild>
             <Link href="#contact">Get in Touch</Link>
